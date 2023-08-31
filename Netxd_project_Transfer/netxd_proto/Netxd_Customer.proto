@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package="github.com/VasenthD/Netxd_Customer";
+
+package Netxd_Customer;
+
+service CustomerService {
+
+rpc CreateCustomer (Customer) returns (CustomerResponse);
+rpc Transaction(Transfer)returns(TransferResponse);
+
+}
+
+message Customer{
+    
+    int32 CustomerId=1;
+    string FirstName=2;
+    string LastName=3;
+    string BankId=4;
+    float Balance=5;
+    string CreatedAt=6;
+    string UpdatedAt=7;
+   
+}
+message CustomerResponse {
+    int32 CustomerId=1;
+    string CreatedAt=2;
+}
+
+message Transfer{
+int32 From_id=1;
+int32 To_id=2;
+float Amount=3;
+
+}
+message TransferResponse {
+    int32 From_id=1;
+    float From_id_balance=2;
+    int32 To_id=3;
+    float To_id_balance=4;
+    
+}
